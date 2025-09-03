@@ -1,0 +1,63 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #eee;
+  line-height: 1.6;
+
+  background: url('../images/nuke.png') no-repeat center center fixed;
+  background-size: cover;
+
+  position: relative;
+  z-index: 1;
+}
+.main-content {
+  /* … everything else … */
+  text-align: center; /* or justify if you prefer */
+}
+
+
+/* Dark overlay to tone down the image */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 2em;
+ /* background: rgba(0, 0, 0, 0.4);*/ /* optional: subtle dark background */
+  box-sizing: border-box;
+}
+
+/* Headings */
+header h1 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 5px black;
+}
+
+/* Navigation */
+nav {
+  text-align: center;
+  margin-top: 2em;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
