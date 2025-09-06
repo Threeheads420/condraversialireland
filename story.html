@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <title>My Story</title>
 <link rel="stylesheet" href="css/story.css">
+<style>
+  /* Force chapter links to be white */
+  ol.chapter-list li a {
+    color: white;
+    text-decoration: none; /* removes underline */
+    font-size: 1.2em; /* slightly larger text */
+  }
+
+  ol.chapter-list li a:hover {
+    text-decoration: underline; /* underline only on hover */
+  }
+</style>
 </head>
 <body>
 
@@ -18,9 +30,12 @@
     Start reading below.
   </p>
 
-  <ol>
-    
-    <!-- add more chapters here -->
+  <ol class="chapter-list">
+    <li><a href="chapters/chapter01.html">Chapter 1: Who I Am</a></li>
+    <li><a href="chapters/chapter02.html">Chapter 2</a></li>
+    <li><a href="chapters/chapter03.html">Chapter 3</a></li>
+    <li><a href="chapters/chapter04.html">Chapter 4</a></li>
+    <li><a href="chapters/chapter05.html">Chapter 5</a></li>
   </ol>
 </main>
 </div>
