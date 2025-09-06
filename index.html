@@ -6,6 +6,15 @@
 <title>Condraversial Ireland</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+    <div id="visitor-count">Visitors: loading...</div>
+<script>
+fetch('https://api.countapi.xyz/hit/condraversialireland.com/visits')
+  .then(res => res.json())
+  .then(res => {
+    document.getElementById('visitor-count').innerText = "Visitors: " + res.value;
+  });
+</script>
+
 <body>
 
 <header>
@@ -53,6 +62,7 @@
 
 </body>
 </html>
+
 
 
 
