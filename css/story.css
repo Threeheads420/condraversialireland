@@ -61,4 +61,24 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+.back-link {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.back-link a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #444; /* dark background */
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  border-radius: 6px; /* rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+.back-link a:hover {
+  background-color: #666; /* lighter on hover */
+}
+
 
