@@ -4,6 +4,7 @@ body {
   font-family: Georgia, serif;
   line-height: 1.6;
   background: #000 url("../images/nuke.png") center center / cover no-repeat fixed;
+
   color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -60,3 +61,4 @@ h1, h2, h3 {
   text-shadow: 0 0 8px #ff4500;
   text-align: center;   /* centers the title */
 }
+
