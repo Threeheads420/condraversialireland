@@ -1,84 +1,62 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-}
+/* story.css — no borders, no boxes, no shadows */
 
 body {
-  font-family: Arial, sans-serif;
-  color: #eee;
+  font-family: Georgia, serif;
   line-height: 1.6;
-
-  background: url('../Images/nuke.png') no-repeat center center fixed;
-  background-size: cover;
-
-  position: relative;
-  z-index: 1;
-}
-.main-content {
-  /* … everything else … */
-  text-align: center; /* or justify if you prefer */
+  background: #000 url("../images/nuke.png") center center / cover no-repeat fixed;
+  color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
-
-/* Dark overlay to tone down the image */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: -1;
-}
-
-.main-content {
+/* Content wrapper */
+main, .container, .content, #content {
   max-width: 800px;
-  margin: 2em auto;
-  padding: 2em;
- /* background: rgba(0, 0, 0, 0.4);*/ /* optional: subtle dark background */
-  box-sizing: border-box;
+  margin: 40px auto;
+  padding: 20px;
+  background: transparent;  /* no box */
+  border-radius: 0;         /* no curved frame */
+  box-shadow: none;         /* no glow/border */
 }
 
 /* Headings */
-header h1 {
-  text-align: center;
+h1, h2, h3 {
   color: #fff;
-  text-shadow: 2px 2px 5px black;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px #ff4500;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 16px;
 }
 
 /* Navigation */
-nav {
-  text-align: center;
-  margin-top: 2em;
+nav, .nav, #nav { 
+  margin-top: 20px; 
+  text-align: center; 
 }
 
-nav a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 1em;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-.back-link {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.back-link a {
+nav a, .nav a, #nav a {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #444; /* dark background */
-  color: white;
+  margin: 0 10px;
+  padding: 8px 14px;
+  background: transparent;  /* no button box */
+  color: #f4f4f4;
   text-decoration: none;
-  font-size: 1.1em;
-  border-radius: 6px; /* rounded corners */
-  transition: background-color 0.3s ease;
+  border: none;             /* no border */
+  border-radius: 0;
+  transition: color 0.3s;
 }
 
-.back-link a:hover {
-  background-color: #666; /* lighter on hover */
+nav a:hover, .nav a:hover, #nav a:hover {
+  color: #ff4500;           /* hover effect only */
+  background: transparent;
 }
-
-
+/* Headings */
+h1, h2, h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px #ff4500;
+  text-align: center;   /* centers the title */
+}
