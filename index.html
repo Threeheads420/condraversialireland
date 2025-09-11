@@ -13,20 +13,53 @@
 <script>
   (function () {
     const el = document.getElementById('visitor-count');
-    const ns = 'condraversialireland.com';
-    const key = 'index';
-    const url = `https://api.countapi.xyz/hit/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`;
+    const NS  = 'condraversialireland_com';                     // safe namespace
+    const KEY = (location.pathname.replace(/[^a-z0-9]/gi,'_')   // per-page key
+                 || 'home').toLowerCase();
+    const HIT = `https://api.countapi.xyz/hit/${NS}/${KEY}`;
+    const GET = `https://api.countapi.xyz/get/${NS}/${KEY}`;
+    const cacheKey = `visitors:${KEY}`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(res => {
-        el.textContent = "Visitors: " + res.value;
+    const timeout = (ms, promise) => {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), ms);
+      return promise(ctrl.signal).finally(() => clearTimeout(t));
+    };
+
+    const fetchJSON = (url, signal) =>
+      fetch(url, {mode:'cors', signal}).then(r => r.json());
+
+    const show = (n, note) => {
+      el.textContent = `Visitors: ${n}${note ? ' (cached)' : ''}`;
+    };
+
+    // start with cached value if we have one (looks nicer than 0)
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) show(cached, true);
+
+    // try to increment
+    timeout(5000, (signal)=>fetchJSON(HIT, signal))
+      .then(d => {
+        const n = d.value ?? 0;
+        localStorage.setItem(cacheKey, n);
+        show(n, false);
       })
       .catch(() => {
-        el.textContent = "Visitors: (unavailable)";
+        // try to just read current value (no increment)
+        timeout(5000, (signal)=>fetchJSON(GET, signal))
+          .then(d => {
+            const n = d.value ?? (cached || 0);
+            localStorage.setItem(cacheKey, n);
+            show(n, !cached);
+          })
+          .catch(() => {
+            // last fallback: cached or 0
+            show(cached || 0, !!cached);
+          });
       });
   })();
 </script>
+
 
 <header>
   <h1>Condraversial Ireland</h1>
@@ -83,3 +116,4 @@
 
 </body>
 </html>
+
