@@ -1,44 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Bastards Condraversial Position</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Condraversial Ireland</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="visitor-count">Visitors: loading...</div>
+
+<div id="visitor-count">Visitors: 0</div>
 <script>
-fetch('https://api.countapi.xyz/hit/condraversialireland.com/visits')
-  .then(res => res.json())
-  .then(res => {
-    document.getElementById('visitor-count').innerText = "Visitors: " + res.value;
-  });
+  (function () {
+    const el = document.getElementById('visitor-count');
+    const ns = 'condraversialireland.com';
+    const key = 'index';
+    const url = `https://api.countapi.xyz/hit/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`;
+
+    fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        el.textContent = "Visitors: " + res.value;
+      })
+      .catch(() => {
+        el.textContent = "Visitors: (unavailable)";
+      });
+  })();
 </script>
 
 <header>
-    <h1>Condraversial Ireland</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="story.html">My Story</a>
-        <a href="document.html">Documentation</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+  <h1>Condraversial Ireland</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="story.html">My Story</a>
+    <a href="document.html">Documentation</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <main>
-    <h2>Welcome</h2>
-    <p>This website documents my story — the struggles, injustices, and resilience — to shed light on what is happening, inspire others to speak up, and show that no one has to accept being mistreated.</p>
+  <h2>Welcome</h2>
+  <p>
+    This website documents my story — the struggles, injustices, and resilience — 
+    to shed light on what is happening, inspire others to speak up, and show that no one 
+    has to accept being mistreated.
+  </p>
 </main>
 
 <section id="synopsis" style="padding: 2em; max-width: 800px; margin: auto; font-family: Arial, sans-serif; line-height: 1.6;">
   <h2 style="text-align: center;">Between the Pages: A Life Lived in the Spaces No One Sees</h2>
-  <p style="font-style: italic; text-align: center;">"I’ve always loved apocalypse movies — but it took me a lifetime to realize I’d been living in one all along."</p>
-  <p>
-    This is the story of Steven Michael Condra — a man born into chaos, raised in silence, and left to navigate a world that never seemed to have a place for him. From childhood abuse to institutional betrayal, from addiction to redemption, from being invisible in the very places meant to protect him to finding fleeting moments of connection and courage — this is not just a memoir.
+  <p style="font-style: italic; text-align: center;">
+    "I’ve always loved apocalypse movies — but it took me a lifetime to realize I’d been living in one all along."
   </p>
   <p>
-    It’s a testimony to survival in the spaces between: between family and estrangement, between justice and injustice, between who you are told you are and who you might have been.
+    This is the story of Steven Michael Condra — a man born into chaos, raised in silence, 
+    and left to navigate a world that never seemed to have a place for him. From childhood abuse 
+    to institutional betrayal, from addiction to redemption, from being invisible in the very places 
+    meant to protect him to finding fleeting moments of connection and courage — this is not just a memoir.
+  </p>
+  <p>
+    It’s a testimony to survival in the spaces between: between family and estrangement, between justice 
+    and injustice, between who you are told you are and who you might have been.
   </p>
   <p>
     Here you’ll find chapters of resilience and rage, humor and heartbreak — the moments that make up a life lived between the pages.
@@ -47,18 +69,17 @@ fetch('https://api.countapi.xyz/hit/condraversialireland.com/visits')
 
 <section id="updates" style="padding: 2em; max-width: 800px; margin: auto; font-family: Arial, sans-serif; line-height: 1.6; background-color: #f9f9f9; border-radius: 8px;">
   <h2 style="text-align: center;">Ongoing Updates</h2>
-  <p>I’ll be putting up supporting paperwork, emails, and documents as I go. There’s a lot of material, but I’ll do my best to get everything online as soon as possible..</p>
+  <p>
+    I’ll be putting up supporting paperwork, emails, and documents as I go. 
+    There’s a lot of material, but I’ll do my best to get everything online as soon as possible.
+  </p>
   <em>Please check back regularly — more is coming soon.</em>
 </section>
 
-<section id="chapters" style="padding: 2em; max-width: 800px; margin: auto; font-family: Arial, sans-serif; line-height: 1.6;">
- 
-</section>
-
 <footer>
-    &copy; 2025 Condra. All rights reserved.
+  &copy; 2025 Condraversial Ireland. All rights reserved.
 </footer>
+
 
 </body>
 </html>
-

@@ -1,51 +1,55 @@
-</p><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>My Story</title>
-<link rel="stylesheet" href="css/story.css?v=2">
-<style>
-  /* Force chapter links to be white */
-  ol.chapter-list li a {
-    color: white;
-    text-decoration: none; /* removes underline */
-    font-size: 1.2em; /* slightly larger text */
-  }
-
-  ol.chapter-list li a:hover {
-    text-decoration: underline; /* underline only on hover */
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Story</title>
+  <link rel="stylesheet" href="css/story.css?v=3" />
 </head>
 <body>
+  <div class="main-content">
+    <header class="story-header">
+      <h1>My Story</h1>
+      <p class="story-intro">Chapters of my journey through hardship, resilience, and survival.</p>
+    </header>
 
-<div class="main-content">
-<header>
-  <h1>My Story</h1>
-</header>
+    <main>
+      <section class="chapters" aria-label="Chapters">
+        <article class="card">
+          <h3><span class="badge">1</span> Who I Am</h3>
+          <p>Opening: identity and beginnings.</p>
+          <a class="btn" href="Chapters/Chapter01.html">Read</a>
+        </article>
 
-<main>
-  <p>
-    This is where my story lives — chapters of my journey through hardship, resilience, and survival.  
-    Start reading below.
-  </p>
+        <article class="card">
+          <h3><span class="badge">2</span> Thin Blurred Lines</h3>
+          <p>Where boundaries fade and truths sharpen.</p>
+          <a class="btn" href="Chapters/Chapter02.html">Read</a>
+        </article>
 
-  <ol class="chapter-list">
-    <li><a href="Chapters/Chapter01.html">Chapter 1: Who I Am</a></li>
-    <li><a href="Chapters/Chapter02.html">Chapter 2: Thin Blurred Lines</a></li>
-    <li><a href="Chapters/Chapter03.html">Chapter 3</a></li>
-    <li><a href="Chapters/Chapter04.html">Chapter 4</a></li>
-    <li><a href="Chapters/Chapter05.html">Chapter 5</a></li>
-  </ol>
-</main>
-</div>
-<div class="back-link">
-  <a href="index.html">Back to Home</a>
-</div>
+        <article class="card soon" aria-disabled="true">
+          <h3><span class="badge">3</span> Coming Soon</h3>
+          <p>In progress.</p>
+          <span class="btn disabled">Pending</span>
+        </article>
+
+        <article class="card soon" aria-disabled="true">
+          <h3><span class="badge">4</span> Coming Soon</h3>
+          <p>In progress.</p>
+          <span class="btn disabled">Pending</span>
+        </article>
+
+        <article class="card soon" aria-disabled="true">
+          <h3><span class="badge">5</span> Coming Soon</h3>
+          <p>In progress.</p>
+          <span class="btn disabled">Pending</span>
+        </article>
+      </section>
+
+      <nav class="chapnav" aria-label="Story navigation">
+        <a href="index.html" class="back-link">⬅ Back to Home</a>
+      </nav>
+    </main>
+  </div>
 </body>
 </html>
-
-
-
-
-

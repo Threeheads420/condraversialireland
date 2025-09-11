@@ -4,7 +4,6 @@ body {
   font-family: Georgia, serif;
   line-height: 1.6;
   background: #000 url("../images/nuke.png") center center / cover no-repeat fixed;
-
   color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -61,4 +60,44 @@ h1, h2, h3 {
   text-shadow: 0 0 8px #ff4500;
   text-align: center;   /* centers the title */
 }
+/* ---- Chapters grid ---- */
+.chapters{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin:24px 0 8px;
+}
+.card{
+  background:rgba(0,0,0,.7);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:16px 16px 14px;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.card:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.35); border-color:rgba(255,255,255,.22); }
+.card h3{ margin:0 0 6px; display:flex; align-items:center; gap:10px; }
+.badge{
+  display:inline-grid; place-items:center;
+  width:28px; height:28px; border-radius:50%;
+  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
+  font-weight:700;
+}
+.card p{ margin:0 0 10px; opacity:.9; }
 
+/* Buttons */
+.btn{
+  display:inline-block; padding:8px 12px; border-radius:12px;
+  border:1px solid rgba(255,255,255,.3); text-decoration:none; font-weight:600;
+}
+.btn:hover{ border-color:#fff; }
+.btn.disabled{ opacity:.55; cursor:not-allowed; }
+
+/* Coming soon state */
+.card.soon{ opacity:.72; }
+
+/* Header + nav tweaks */
+.story-header{ text-align:center; margin:10px 0 14px; }
+.story-intro{ margin:.25rem 0 0; opacity:.85; }
+.chapnav{ display:flex; justify-content:center; margin:18px 0 0; }
+.back-link{ text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.4); padding-bottom:2px; }
+.back-link:hover{ border-bottom-color:#fff; }
