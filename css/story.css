@@ -1,103 +1,189 @@
-/* story.css — no borders, no boxes, no shadows */
+/* =========================================================
+   story.css  (Story theme)
+   ========================================================= */
 
-body {
+/* ---------- Base ---------- */
+body{
+  position: relative;
   font-family: Georgia, serif;
   line-height: 1.6;
-  background: #000 url("../images/nuke.png") center center / cover no-repeat fixed;
-  color: #f4f4f4;
   margin: 0;
   padding: 0;
+  color: #f4f4f4;
+  background: #000 url("../images/nuke.png") center / cover no-repeat fixed;
 }
 
-/* Content wrapper */
-main, .container, .content, #content {
+/* Dark overlay */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.30);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep content above overlay */
+main, .container, .content, #content,
+nav, .main-content{
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Layout ---------- */
+main,
+.container,
+.content,
+#content{
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: transparent;  /* no box */
-  border-radius: 0;         /* no curved frame */
-  box-shadow: none;         /* no glow/border */
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 16px;
 }
 
-/* Headings */
-h1, h2, h3 {
+/* ---------- Typography ---------- */
+h1, h2, h3{
   color: #fff;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
+  text-align: center;
   text-shadow: 0 0 8px #ff4500;
 }
 
-/* Paragraphs */
-p {
-  margin-bottom: 16px;
+p{
+  margin: 0 0 16px;
 }
 
-/* Navigation */
-nav, .nav, #nav { 
-  margin-top: 20px; 
-  text-align: center; 
+/* ---------- Navigation (Top) ---------- */
+nav{
+  margin-top: 20px;
+  text-align: center;
 }
 
-nav a, .nav a, #nav a {
+nav a{
   display: inline-block;
   margin: 0 10px;
   padding: 8px 14px;
-  background: transparent;  /* no button box */
   color: #f4f4f4;
   text-decoration: none;
-  border: none;             /* no border */
-  border-radius: 0;
-  transition: color 0.3s;
+  transition: color .3s;
 }
 
-nav a:hover, .nav a:hover, #nav a:hover {
-  color: #ff4500;           /* hover effect only */
-  background: transparent;
+nav a:hover{
+  color: #ff4500;
 }
-/* Headings */
-h1, h2, h3 {
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 8px #ff4500;
-  text-align: center;   /* centers the title */
+
+/* ---------- Story header ---------- */
+.story-header{
+  text-align: center;
+  margin: 10px 0 14px;
 }
-/* ---- Chapters grid ---- */
+
+.story-intro{
+  margin: .25rem 0 0;
+  opacity: .85;
+}
+
+/* ---------- Chapters grid ---------- */
+.chapter-number{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
 .chapters{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
-  margin:24px 0 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 24px 0 8px;
 }
+
 .card{
-  background:rgba(0,0,0,.7);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  padding:16px 16px 14px;
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  background: rgba(0,0,0,.70);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  padding: 16px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
-.card:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.35); border-color:rgba(255,255,255,.22); }
-.card h3{ margin:0 0 6px; display:flex; align-items:center; gap:10px; }
+
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  border-color: rgba(255,255,255,.22);
+}
+
+.card h3{
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card p{
+  margin: 0;
+  opacity: .90;
+}
+
+/* ---------- Chapter number badge ---------- */
 .badge{
-  display:inline-grid; place-items:center;
-  width:28px; height:28px; border-radius:50%;
-  background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
-  font-weight:700;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 700;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
 }
-.card p{ margin:0 0 10px; opacity:.9; }
 
-/* Buttons */
-.btn{
-  display:inline-block; padding:8px 12px; border-radius:12px;
-  border:1px solid rgba(255,255,255,.3); text-decoration:none; font-weight:600;
+/* ---------- Chapter navigation (Top/Bottom) ---------- */
+.chapnav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 0;
 }
-.btn:hover{ border-color:#fff; }
-.btn.disabled{ opacity:.55; cursor:not-allowed; }
 
-/* Coming soon state */
-.card.soon{ opacity:.72; }
+.chapnav a{
+  display: inline-block;
+  padding: 8px 14px;
+  color: #f4f4f4;
+  text-decoration: none;
+  transition: color .3s;
+}
 
-/* Header + nav tweaks */
-.story-header{ text-align:center; margin:10px 0 14px; }
-.story-intro{ margin:.25rem 0 0; opacity:.85; }
-.chapnav{ display:flex; justify-content:center; margin:18px 0 0; }
-.back-link{ text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.4); padding-bottom:2px; }
-.back-link:hover{ border-bottom-color:#fff; }
+.chapnav a:hover{
+  color: #ff4500;
+}
+
+/* Optional: if you use span dividers like | */
+.chapnav span{
+  opacity: .7;
+}
+
+/* ---------- Back-link helper ---------- */
+.back-link{
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255,255,255,.35);
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 600px){
+  main, .container, .content, #content{
+    margin: 20px 12px;
+    padding: 16px;
+  }
+
+  nav a{
+    margin: 6px 6px;
+  }
+}
+/* STORY INDEX ONLY: remove the big panel behind the cards */
+.story-index main{
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}

@@ -5,55 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Story</title>
   <link rel="stylesheet" href="css/story.css?v=3" />
+
+  <style>
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      display: block;
+      padding: 1.5rem;
+      border: 1px solid #333;
+      text-decoration: none;
+      color: inherit;
+      background: #111;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .card.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .card.disabled:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .chapter-number {
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 0.3rem;
+    }
+
+    .chapter-title {
+      margin: 0.2rem 0 0.4rem;
+      font-size: 1.2rem;
+    }
+
+    .chapter-subtitle {
+      font-size: 0.95rem;
+      color: #bbb;
+    }
+  </style>
 </head>
-<nav>
-   
+
+<body class = "story-index">
+  <nav>
     <a href="index.html">Home</a>
     <a href="story.html">My Story</a>
     <a href="document.html">Documentation</a>
     <a href="support.html">Supports</a>
     <a href="contact.html">Contact</a>
   </nav>
-<body>
+
   <div class="main-content">
     <header class="story-header">
-      <h1>My Story</h1>
-      <p class="story-intro">Chapters of my journey through hardship, resilience, and survival.</p>
+      <h1 class="story-intro">
+        Chapters of my journey through hardship, resilience, and survival.
+      </h1>
     </header>
 
     <main>
       <section class="chapters" aria-label="Chapters">
-        <article class="card">
-          <h3><span class="badge">1</span> Who I Am</h3>
-          <p>Opening: identity and beginnings.</p>
-          <a class="btn" href="Chapters/Chapter01.html">Read</a>
-        </article>
 
-        <article class="card">
-          <h3><span class="badge">2</span> Thin Blurred Lines</h3>
-          <p>Where boundaries fade and truths sharpen.</p>
-          <a class="btn" href="Chapters/Chapter02.html">Read</a>
-        </article>
+        <a href="Chapters/Chapter01.html" class="card">
+          <div class="chapter-number">Chapter 1</div>
+          <div class="chapter-title">Who I Am</div>  <div class="chapter-subtitle">From the start.</div>
+        </a>
 
-        <article class="card">
-          <h3><span class="badge">3</span> From First Aid to First Offence</h3>
-            <p>Saving lives and hard lessons.</p>
-            <a class="btn"
-               href="Chapters/Chapter03.html">Read</a>
-        </article>
+        <a href="Chapters/Chapter02.html" class="card">
+          <div class="chapter-number">Chapter 2</div>
+          <div class="chapter-title">Thin Blurred Lines</div>  <div class="chapter-subtitle">Where boundaries fade and truths sharpen.</div>
+        </a>
 
-        <article class="card">
-          <h3><span class="badge">4</span> The Wobbly Road to Clare</h3>
-          <p>New places, old habits.</p>
-          <a class="btn" 
-          href="Chapters/Chapter04.html">Read</a>
-        </article>
+        <a href="Chapters/Chapter03.html" class="card">
+          <div class="chapter-number">Chapter 3</div>
+          <div class="chapter-title">From First Aid to First Offence</div>  <div class="chapter-subtitle">Saving lives and hard lessons.</div>
+        </a>
 
-        <article class="card soon" aria-disabled="true">
-          <h3><span class="badge">5</span> Coming Soon</h3>
-          <p>In progress.</p>
-          <span class="btn disabled">Pending</span>
-        </article>
+        <a href="Chapters/Chapter04.html" class="card">
+          <div class="chapter-number">Chapter 4</div>
+          <div class="chapter-title">The Wobbly Road to Clare</div>  <div class="chapter-subtitle">New places, old habits.</div>
+        </a>
+
+        <a href="Chapters/Chapter05.html" class="card">
+          <div class="chapter-number">Chapter 5</div>
+          <div class="chapter-title">Cuan Mhuire</div>
+          <div class="chapter-subtitle">Rebirth-allegedly.</div>
+        </a>
+
+        <a href="Chapters/Chapter06.html" class="card">
+          <div class="chapter-number">Chapter 6</div>
+          <div class="chapter-title">The Nightmare Returns</div><div class="chapter-subtitle">.......</div>
+        </a>
+
+        <a href="Chapters/Chapter07.html" class="card">
+          <div class="chapter-number">Chapter 7</div>
+          <div class="chapter-title">Attacked in the House</div> 
+          <div class="chapter-subtitle">False start-Bray</div>
+          </a>
+        
+        <a href="Chapters/Chapter07.html" class="card">
+          <div class="chapter-number">Chapter 8</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+          </a>
+          
+        <div class="card disabled">
+          <div class="chapter-number">Chapter 9</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+        
+        <div class="card disabled">
+          <div class="chapter-number">Chapter 10</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+        
+                <div class="card disabled">
+          <div class="chapter-number">Chapter 11</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+        
+                <div class="card disabled">
+          <div class="chapter-number">Chapter 12</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+        
+                <div class="card disabled">
+          <div class="chapter-number">Chapter 13</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+        
+    
+                <div class="card disabled">
+          <div class="chapter-number">Chapter 14</div>
+          <div class="chapter-title">Untitled</div>
+          <div class="chapter-subtitle">Coming soon</div>
+        </div>
+    
       </section>
 
       <nav class="chapnav" aria-label="Story navigation">
