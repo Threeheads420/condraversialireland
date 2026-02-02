@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta charset="UTF-8">
     <title>Chapter 8:..........</title>
-    <link rel="stylesheet" href="../css/story.css?v=3">
+    <link rel="stylesheet" href="../css/story.css?v=4">
 </head>
 
 <body>
@@ -15,8 +17,8 @@
     <a href="../contact.html">Contact</a>
   </nav>
 
-   <nav>
-            <a href="Chapter07.html">⬅ Previous</a> |
+   <nav class="chapnav">
+            <a href="Chapter07.html">⬅ Previous</a> 
             <a href="Chapter09.html">Next ➡</a>
     </nav>
 
@@ -29,5 +31,14 @@
         <main>
         </main>
     </div>
+ <footer class="site-footer">
+  <p>© <span id="year"></span> Steven Condra. All rights reserved.</p>
+  <p class="site-meta">Updates will be added over time.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
     </body>
 </html>

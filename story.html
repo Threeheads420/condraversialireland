@@ -4,58 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Story</title>
-  <link rel="stylesheet" href="css/story.css?v=3" />
+  <link rel="stylesheet" href="css/story.css?v=4" />
 
-  <style>
-    .chapters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
 
-    .card {
-      display: block;
-      padding: 1.5rem;
-      border: 1px solid #333;
-      text-decoration: none;
-      color: inherit;
-      background: #111;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-    }
-
-    .card.disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-    }
-
-    .card.disabled:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
-    .chapter-number {
-      font-size: 1.5rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 0.3rem;
-    }
-
-    .chapter-title {
-      margin: 0.2rem 0 0.4rem;
-      font-size: 1.2rem;
-    }
-
-    .chapter-subtitle {
-      font-size: 0.95rem;
-      color: #bbb;
-    }
-  </style>
 </head>
 
 <body class = "story-index">
@@ -68,7 +19,8 @@
   </nav>
 
   <div class="main-content">
-    <header class="story-header">
+    <header class="hero story-header">
+
       <h1 class="story-intro">
         Chapters of my journey through hardship, resilience, and survival.
       </h1>
@@ -105,7 +57,8 @@
 
         <a href="Chapters/Chapter06.html" class="card">
           <div class="chapter-number">Chapter 6</div>
-          <div class="chapter-title">The Nightmare Returns</div><div class="chapter-subtitle">.......</div>
+          <div class="chapter-title">The Nightmare Returns</div>
+          <div class="chapter-subtitle">When sobriety meets the past.</div>
         </a>
 
         <a href="Chapters/Chapter07.html" class="card">
@@ -159,10 +112,25 @@
     
       </section>
 
-      <nav class="chapnav" aria-label="Story navigation">
+      <nav class="chapnav">
         <a href="index.html" class="back-link">⬅ Back to Home</a>
       </nav>
+      
+       
+      
+      
+      
+      
     </main>
   </div>
+ <footer class="site-footer">
+  <p>© <span id="year"></span> Steven Condra. All rights reserved.</p>
+  <p class="site-meta">Updates will be added over time.</p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

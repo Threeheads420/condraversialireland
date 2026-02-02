@@ -1,97 +1,132 @@
 /* =========================================================
-   story.css  (Story theme)
+   story.css (minimal)
+   Works for: story.html + chapter pages that use main / .main-content
    ========================================================= */
 
 /* ---------- Base ---------- */
 body{
-  position: relative;
+  margin: 0;
   font-family: Georgia, serif;
   line-height: 1.6;
-  margin: 0;
+  background: #f2f0ea;
+  color: #222;
+}
+
+
+/* ---------- Top nav ---------- */
+nav{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 10px 0;
+  background: rgba(242,240,234,.92);
+  border-bottom: 1px solid rgba(0,0,0,.10);
+  backdrop-filter: blur(6px);
+}
+nav a{
+  display: inline-block;
+  margin: 6px 8px;
+  padding: 8px 14px;
+  color: #222;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,.12);
+  border-radius: 999px;
+  background: rgba(255,255,255,.75);
+}
+nav a:hover{
+  background: rgba(0,0,0,.06);
+}
+
+
+/* ---------- Main wrapper / panels ---------- */
+/* Use these so both story.html and chapters stay centred */
+.main-content,
+main,
+#content,
+.container,
+.content,
+.main.container.content{
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Panel look for reading pages */
+.main-content,
+main,
+#content,
+.container,
+.content,
+.main.container.content{
+ background: #fafafa;
+border: 1px solid #ddd;
+
+  border-radius: 16px;
+}
+.main-content p,
+.main.container.content p{
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Story index: let the hero breathe */
+.story-index .main-content{
+  background: transparent;
+  border: none;
   padding: 0;
-  color: #f4f4f4;
-  background: #000 url("../images/nuke.png") center / cover no-repeat fixed;
 }
 
-/* Dark overlay */
-body::before{
+/* ---------- Hero (nuke image) ---------- */
+.hero{
+  background: url("../images/nuke.png") center / cover no-repeat;
+  padding: 80px 20px;
+  margin: 0 auto 28px;
+  border-radius: 16px;
+  position: relative;
+  text-align: center;
+}
+
+.hero::after{
   content:"";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.30);
-  pointer-events: none;
-  z-index: 0;
+  background: rgba(0,0,0,.35);
+  border-radius: 16px;
 }
 
-/* Keep content above overlay */
-main, .container, .content, #content,
-nav, .main-content{
+.hero > *{
   position: relative;
   z-index: 1;
 }
 
-/* ---------- Layout ---------- */
-main,
-.container,
-.content,
-#content{
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 16px;
+.story-intro{
+  margin: 0;
+  text-shadow: 0 0 8px rgba(255,69,0,.45);
 }
 
 /* ---------- Typography ---------- */
 h1, h2, h3{
-  color: #fff;
+  color:#1a1a1a;
   margin: 0 0 20px;
   text-align: center;
-  text-shadow: 0 0 8px #ff4500;
 }
 
 p{
-  margin: 0 0 16px;
+  margin: 0 0 1.2em;
 }
-
-/* ---------- Navigation (Top) ---------- */
-nav{
-  margin-top: 20px;
-  text-align: center;
-}
-
-nav a{
-  display: inline-block;
-  margin: 0 10px;
-  padding: 8px 14px;
+.hero h1{
   color: #f4f4f4;
-  text-decoration: none;
-  transition: color .3s;
+}
+.main.container.content p:first-of-type{
+  font-size: 1.05em;
 }
 
-nav a:hover{
-  color: #ff4500;
-}
 
-/* ---------- Story header ---------- */
-.story-header{
-  text-align: center;
-  margin: 10px 0 14px;
-}
 
-.story-intro{
-  margin: .25rem 0 0;
-  opacity: .85;
-}
 
-/* ---------- Chapters grid ---------- */
-.chapter-number{
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
+/* ---------- Chapters grid (story.html) ---------- */
 .chapters{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -100,10 +135,13 @@ nav a:hover{
 }
 
 .card{
-  background: rgba(0,0,0,.70);
+  display: block;
+  background: rgba(0,0,0,.40);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: 16px;
-  padding: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
   transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 
@@ -113,77 +151,86 @@ nav a:hover{
   border-color: rgba(255,255,255,.22);
 }
 
-.card h3{
-  margin: 0 0 6px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.card.disabled{
+  opacity: .45;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
-.card p{
+.chapter-number{
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #222;
+  margin-bottom: .35rem;
+}
+
+.card .chapter-title{
+  margin: .2rem 0 .6rem;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.card .chapter-subtitle{
   margin: 0;
   opacity: .90;
+    color: #222;
 }
 
-/* ---------- Chapter number badge ---------- */
-.badge{
-  display: inline-grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  font-weight: 700;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-}
-
-/* ---------- Chapter navigation (Top/Bottom) ---------- */
+/* ---------- Chapter navigation ---------- */
 .chapnav{
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   margin: 18px 0 0;
 }
 
-.chapnav a{
-  display: inline-block;
-  padding: 8px 14px;
-  color: #f4f4f4;
-  text-decoration: none;
-  transition: color .3s;
-}
-
-.chapnav a:hover{
-  color: #ff4500;
-}
-
-/* Optional: if you use span dividers like | */
-.chapnav span{
-  opacity: .7;
-}
-
-/* ---------- Back-link helper ---------- */
 .back-link{
   text-decoration: none;
   border-bottom: 1px dashed rgba(255,255,255,.35);
+  color: #f4f4f4;
 }
-
-/* ---------- Mobile tweaks ---------- */
+.main.container.content h1{
+  font-size: 2.2rem;
+  letter-spacing: .04em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+/* ---------- Mobile ---------- */
 @media (max-width: 600px){
-  main, .container, .content, #content{
+  .main-content,
+  main,
+  #content,
+  .container,
+  .content,
+  .main.container.content{
     margin: 20px 12px;
     padding: 16px;
   }
 
-  nav a{
-    margin: 6px 6px;
+  .main.container.content h1{
+    font-size: 1.8rem;
+  }
+
+  .hero{
+    padding: 56px 16px;
   }
 }
-/* STORY INDEX ONLY: remove the big panel behind the cards */
-.story-index main{
-  background: transparent;
-  border: none;
-  border-radius: 0;
+
+.site-footer{
+  max-width: 600px;
+  margin: 28px auto 40px;
+  padding: 16px 20px;
+  color: #555;
+  text-align: center;
+  font-size: .95rem;
+}
+
+.site-footer p{
+  margin: .35em 0;
+}
+
+.site-footer .site-meta{
+  font-style: italic;
 }
